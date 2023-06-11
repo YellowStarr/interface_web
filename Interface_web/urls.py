@@ -20,5 +20,6 @@ from interface import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index),
-    # path('interface/add', views.add_interface),
+    path('case_list/', views.case),
+    path('case/add/', views.add_case),
 ]

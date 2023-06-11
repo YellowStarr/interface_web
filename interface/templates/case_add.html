@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.0/css/bootstrap.min.css'%}">
+</head>
+<body>
+<div class="container">
+    <form action="/case/add/" method="post">
+        {% csrf_token %}
+    <div class="mb-3 row">
+        <label for="case_name" class="col-sm-2 col-form-label">用例名称</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="case_name" name="case_name">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="BaseURL" class="col-sm-2 col-form-label">BaseURL</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="BaseURL" name="BaseURL">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="url" class="col-sm-2 col-form-label">url</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="url" name="url">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="method" class="col-sm-2 col-form-label">method</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="method" name="method">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="args_json" class="col-sm-2 col-form-label">参数</label>
+        <div class="col-sm-10">
+            <textarea type="text" class="form-control" id="args_json" name="args_json"></textarea>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10 offset-sm-3">
+            <button type="submit" class="btn btn-outline-primary">添 加</button>
+        </div>
+    </div>
+    </form>
+
+</div>
+
+<script src="{% static 'jquery-3.7.0.min.js'%}"></script>
+<script src="{% static 'bootstrap-5.3.0/js/bootstrap.min.js'%}"></script>
+</body>
+</html>
