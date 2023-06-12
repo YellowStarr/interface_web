@@ -22,4 +22,6 @@ urlpatterns = [
     path('index/', views.index),
     path('case_list/', views.case),
     path('case/add/', views.add_case),
+    path('if/delete/', views.delete_case),
+    path('if/edit/', views.edit_case),
 ]

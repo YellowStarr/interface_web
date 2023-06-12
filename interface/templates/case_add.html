@@ -1,44 +1,28 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'bootstrap-5.3.0/css/bootstrap.min.css'%}">
-</head>
-<body>
-<div class="container">
+{% extends 'basic.html' %}
+
+{% block case_add %}
+    <div>
     <form action="/case/add/" method="post">
         {% csrf_token %}
     <div class="mb-3 row">
-        <label for="case_name" class="col-sm-2 col-form-label">用例名称</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="case_name" name="case_name">
-        </div>
+        <label for="url" class="col-sm-3 col-form-label">用例名称</label>
+        {{ case_form.case_name }}
     </div>
     <div class="mb-3 row">
-        <label for="BaseURL" class="col-sm-2 col-form-label">BaseURL</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="BaseURL" name="BaseURL">
-        </div>
+        <label for="url" class="col-sm-3 col-form-label">baseUrl</label>
+        {{ case_form.base_url }}
     </div>
     <div class="mb-3 row">
-        <label for="url" class="col-sm-2 col-form-label">url</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="url" name="url">
-        </div>
+        <label for="url" class="col-sm-3 col-form-label">url</label>
+        {{ case_form.url }}
     </div>
     <div class="mb-3 row">
-        <label for="method" class="col-sm-2 col-form-label">method</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="method" name="method">
-        </div>
+        <label for="method" class="col-sm-3 col-form-label">method</label>
+        {{ case_form.method }}
     </div>
     <div class="mb-3 row">
-        <label for="args_json" class="col-sm-2 col-form-label">参数</label>
-        <div class="col-sm-10">
-            <textarea type="text" class="form-control" id="args_json" name="args_json"></textarea>
-        </div>
+        <label for="args_json" class="col-sm-3 col-form-label">参数</label>
+        {{ case_form.args_json }}
     </div>
     <div class="mb-3 row">
         <div class="col-sm-10 offset-sm-3">
@@ -46,10 +30,5 @@
         </div>
     </div>
     </form>
-
 </div>
-
-<script src="{% static 'jquery-3.7.0.min.js'%}"></script>
-<script src="{% static 'bootstrap-5.3.0/js/bootstrap.min.js'%}"></script>
-</body>
-</html>
+{% endblock %}

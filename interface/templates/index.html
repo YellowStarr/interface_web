@@ -1,13 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'bootstrap-5.3.0/css/bootstrap.min.css'%}">
-</head>
-<body>
-<div class="container">
+{% extends 'basic.html' %}
+
+{% block index %}
     <div>
         <form method="post" action="/index/">
             {% csrf_token %}
@@ -39,17 +32,13 @@
             <td>{{ ifs.url }}</td>
             <td>{{ ifs.method }}</td>
             <td>{{ ifs.args }}</td>
-            <td><a>编辑</a>
-                <a>删除</a>
-                <a href="/case/add/">添加用例</a>
+            <td><a href="/if/edit/?if_id={{ ifs.id }}">编辑</a>
+                <a href="/if/delete/?if_id={{ ifs.id }}">删除</a>
+                <!--<a href="/case/add/?if_id={{ ifs.id }}">添加用例</a>-->
             </td>
 
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div>
-<script src="{% static 'jquery-3.7.0.min.js'%}"></script>
-<script src="{% static 'bootstrap-5.3.0/js/bootstrap.min.js'%}"></script>
-</body>
-</html>
+{% endblock %}
