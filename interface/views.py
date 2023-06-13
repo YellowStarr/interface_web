@@ -30,7 +30,7 @@ def case(request):
     """
     queryset = models.Case.objects.all()
 
-    return render(request,"case_list.html", {"case_list":queryset})
+    return render(request,"case_list.html", {"case_list":queryset, "showBlock": "case_list"})
 
 def add_case(request):
     caseform = myForm.CaseForm(data=request.POST)
