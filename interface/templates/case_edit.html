@@ -1,8 +1,7 @@
 {% extends 'basic.html' %}
-
-{% block case_add %}
+{% block case_edit %}
     <div>
-    <form action="/case/add/" method="post">
+    <form  method="post">
         {% csrf_token %}
         <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">baseurl</label>
@@ -23,7 +22,6 @@
         </div>
         <div class="mb-3 row">
             {{ case_form.interf }}
-{##}
     </div>
     <div class="mb-3 row">
         <label for="url" class="col-sm-3 col-form-label">用例名称</label>
@@ -41,7 +39,7 @@
 
     <div class="mb-3 row">
         <div class="col-sm-10 offset-sm-3">
-            <button type="submit" class="btn btn-outline-primary">添 加</button>
+            <button type="submit" class="btn btn-outline-primary">保 存</button>
         </div>
     </div>
     </form>

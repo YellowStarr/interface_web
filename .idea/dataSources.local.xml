@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - interface_db@localhost [2]" uuid="ae19f090-5e49-49b0-bb42-3816ba5b8fb4">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>interface_db.*</schema-pattern>
+      <default-schemas>interface_db.*</default-schemas>
+    </data-source>
+  </component>
+</project>

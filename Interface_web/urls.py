@@ -18,10 +18,11 @@ from django.urls import path
 from interface import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('index/', views.index),
     path('case_list/', views.case),
     path('case/add/', views.add_case),
-    path('if/delete/', views.delete_case),
-    path('if/edit/', views.edit_case),
+    path('case/delete/', views.delete_case),
+    path('case/edit/<int:c_id>/', views.edit_case),
+    path('case/execute/', views.execute_case),
 ]

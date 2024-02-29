@@ -1,13 +1,17 @@
 {% extends 'basic.html' %}
 
 {% block index %}
-    <div>
+    <div xmlns="http://www.w3.org/1999/html">
         <form method="post" action="/index/">
             {% csrf_token %}
             <input type="text" placeholder="baseure" name="baseurl"/>
             <input type="text" placeholder="name" name="name"/>
-            <input type="text" placeholder="url" name="url"/>
-            <input type="text" placeholder="method" name="method"/>
+            <textarea type="text" placeholder="header" name="header"></textarea>
+            <input type="text" placeholder="api" name="api"/>
+            <select name="method"/>
+            <option value="1">get</option>
+            <option value="2">post</option>
+            </select>
             <input type="text" placeholder="args" name="args"/>
             <button type="submit" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 10px;" href="/interface/add/">添加接口</button>
         </form>
@@ -18,7 +22,8 @@
         <tr>
             <th>base url</th>
             <th>name</th>
-            <th>url</th>
+            <th>header</th>
+            <th>api</th>
             <th>method</th>
             <th>args</th>
             <th>operate</th>
@@ -29,10 +34,12 @@
             <tr>
             <td>{{ ifs.base_url }}</td>
             <td>{{ ifs.name }}</td>
+            <td>{{ ifs.header }}</td>
             <td>{{ ifs.url }}</td>
-            <td>{{ ifs.method }}</td>
+            <td>{{ ifs.get_method_display }}</td>
             <td>{{ ifs.args }}</td>
             <td><a href="/if/edit/?if_id={{ ifs.id }}">编辑</a>
+            <a href="/case/add/?if_id={{ ifs.id }}">添加用例</a>
                 <a href="/if/delete/?if_id={{ ifs.id }}">删除</a>
                 <!--<a href="/case/add/?if_id={{ ifs.id }}">添加用例</a>-->
             </td>
